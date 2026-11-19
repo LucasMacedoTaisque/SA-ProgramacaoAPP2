@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação de caracteres para aceitar acentos -->
+    <meta charset="UTF-8">
+
+    <!-- Faz o site se adaptar a celulares e diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define o nome que aparece na aba do navegador -->
+    <title>NovaTech Delivery</title>
+
+    <!-- Conecta o arquivo CSS responsável pela aparência do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Conecta o JavaScript responsável pelas funções do site -->
+    <!-- defer faz o JavaScript esperar o HTML ser carregado -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =================================
+         CABEÇALHO DO SITE
+    ================================== -->
+
+    <!-- Área superior com o nome, a busca e o relógio -->
+    <header>
+
+        <!-- Nome principal da empresa -->
+        <h1>NovaTech</h1>
+
+        <!-- Campo utilizado para pesquisar restaurantes e pratos -->
+        <div class="busca">
+            <input
+                type="search"
+                id="busca"
+                placeholder="Busque por restaurantes ou pratos..."
+            >
+        </div>
+
+        <!-- Mostra o horário atual, atualizado pelo JavaScript -->
+        <div id="relogio">00:00:00</div>
+
+    </header>
+
+
+    <!-- =================================
+         MENU DE NAVEGAÇÃO
+    ================================== -->
+
+    <!-- Menu que aparece depois que o usuário entra na conta -->
+    <!-- hidden deixa o menu escondido inicialmente -->
+    <nav id="menu" hidden>
+
+        <!-- Volta para a tela inicial com os restaurantes -->
+        <button onclick="listarRestaurantes()">Início</button>
+
+        <!-- Abre a tela com os pedidos do usuário -->
+        <button onclick="abrirPedidos()">Meus pedidos</button>
+
+        <!-- Abre a área de administração -->
+        <button class="dono" onclick="mostrar('dono')">
+            Administração
+        </button>
+
+        <!-- Desconecta o usuário da conta -->
+        <button onclick="sair()">Sair</button>
+
+    </nav>
+
+
+    <!-- =================================
+         CONTEÚDO PRINCIPAL
+    ================================== -->
+
+    <!-- Contém todas as telas do sistema -->
+    <main>
+
+
+        <!-- =================================
+             TELA INICIAL: RESTAURANTES
+        ================================== -->
+
+        <!-- Primeira tela que aparece ao abrir o site -->
+        <section id="restaurantes">
+
+            <!-- Banner de apresentação do delivery -->
+            <div class="banner">
+
+                <div class="banner-texto">
+
+                    <!-- Pequena identificação acima do título -->
+                    <span>NA NOVATECH TEM</span>
+
+                    <!-- Frase principal de divulgação -->
+                    <h2>
+                        Seu pedido favorito, do seu jeito!
+                    </h2>
+
+                    <!-- Descrição do serviço -->
+                    <p>
+                        Encontre restaurantes e aproveite suas comidas favoritas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Área que apresenta os restaurantes disponíveis -->
+            <div class="restaurantes-area">
+
+                <!-- Título e descrição da seção -->
+                <div class="titulo-secao">
+                    <h2>Restaurantes disponíveis</h2>
+                    <p>Escolha onde pedir hoje</p>
+                </div>
+
+                <!--
+                    O JavaScript adiciona os restaurantes aqui.
+                    Cada restaurante aparece em um cartão com
+                    sua foto, nome e horário de funcionamento.
+                -->
+                <div id="listaRest" class="lista lista-restaurantes"></div>
+
+                <!-- Local onde aparecem mensagens de aviso ou erro -->
+                <p id="avisoRest" class="erro"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DE LOGIN
+        ================================== -->
+
+        <!-- Tela utilizada para o usuário informar seu nome -->
+        <!-- hidden esconde a tela inicialmente -->
+        <section id="conta" hidden>
+
+            <!-- Mensagem de boas-vindas -->
+            <div class="boas-vindas">
+                <h2>Bem-vindo ao NovaTech Delivery!</h2>
+                <p>Entre para continuar seu pedido.</p>
+            </div>
+
+            <!-- Caixa que contém o formulário de entrada -->
+            <div class="caixa">
+
+                <h2>Entre para continuar</h2>
+
+                <!-- Identificação do campo de nome -->
+                <label for="nome">Seu nome:</label>
+
+                <!-- Campo onde o usuário digita seu nome -->
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                >
+
+                <!-- Mostra mensagens de erro no cadastro -->
+                <p id="erroNome" class="erro"></p>
+
+                <!-- Executa a função de cadastro ao clicar -->
+                <button class="principal" onclick="criarConta()">
+                    Entrar
+                </button>
+
+                <!-- Retorna para a tela inicial -->
+                <button class="voltar" onclick="listarRestaurantes()">
+                    Voltar ao início
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DO CARDÁPIO
+        ================================== -->
+
+        <!-- Apresenta os produtos do restaurante selecionado -->
+        <section id="cardapio" hidden>
+
+            <!-- Cabeçalho com o nome e a descrição do restaurante -->
+            <div class="cabecalho-cardapio">
+
+                <div>
+
+                    <!-- Identificação da seção -->
+                    <span class="identificacao-cardapio">
+                        CARDÁPIO DO RESTAURANTE
+                    </span>
+
+                    <!-- O JavaScript altera esse título conforme o restaurante -->
+                    <h2 id="tituloCardapio">Cardápio</h2>
+
+                    <!-- Descrição inicial do cardápio -->
+                    <p>
+                        Escolha uma das opções disponíveis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!--
+                O JavaScript coloca aqui os produtos
+                do restaurante selecionado.
+
+                Cada produto terá:
+                - Foto
+                - Nome
+                - Preço
+            -->
+            <div id="listaItens" class="lista lista-comidas"></div>
+
+            <!-- Volta para a lista de restaurantes -->
+            <button
+                class="voltar"
+                onclick="listarRestaurantes()"
+            >
+                Voltar aos restaurantes
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DE ENDEREÇO
+        ================================== -->
+
+        <!-- Tela onde o cliente informa o endereço de entrega -->
+        <section id="endereco" hidden>
+
+            <h2>Endereço de entrega</h2>
+
+            <!-- Caixa que mostra o produto escolhido -->
+            <div class="caixa">
+                <p id="itemEscolhido"></p>
+            </div>
+
+            <!-- Campo para informar a rua -->
+            <label for="rua">Rua:</label>
+            <input
+                type="text"
+                id="rua"
+                placeholder="Nome da rua"
+            >
+
+            <!-- Campo para informar o número da residência -->
+            <label for="numero">Número:</label>
+            <input
+                type="text"
+                id="numero"
+                placeholder="Número da residência"
+            >
+
+            <!-- Campo para informar o bairro -->
+            <label for="bairro">Bairro:</label>
+            <input
+                type="text"
+                id="bairro"
+                placeholder="Seu bairro"
+            >
+
+            <!-- Mostra mensagens de erro no preenchimento -->
+            <p id="erroEndereco" class="erro"></p>
+
+            <!-- Confirma o endereço e continua a operação -->
+            <button
+                id="btnEndereco"
+                class="principal"
+                onclick="confirmarEndereco()"
+            >
+                Fazer pedido
+            </button>
+
+            <!-- Retorna para o cardápio -->
+            <button
+                class="voltar"
+                onclick="mostrar('cardapio')"
+            >
+                Voltar
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DE RESUMO DO PEDIDO
+        ================================== -->
+
+        <!-- Mostra os dados depois que o pedido é realizado -->
+        <section id="resumo" hidden>
+
+            <!-- Mensagem de confirmação -->
+            <h2>Pedido realizado!</h2>
+
+            <!-- O JavaScript coloca aqui os dados do pedido -->
+            <div class="caixa" id="textoResumo"></div>
+
+            <!-- Abre a tela para acompanhar o pedido -->
+            <button
+                class="principal"
+                onclick="abrirPedidos()"
+            >
+                Acompanhar pedido
+            </button>
+
+            <!-- Retorna para a página inicial -->
+            <button
+                class="voltar"
+                onclick="listarRestaurantes()"
+            >
+                Voltar ao início
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DE PEDIDOS DO CLIENTE
+        ================================== -->
+
+        <!-- Apresenta os dados da conta e os pedidos realizados -->
+        <section id="pedidos" hidden>
+
+            <h2>Minha conta</h2>
+
+            <!-- Caixa com as informações do usuário -->
+            <div class="caixa">
+
+                <!-- O JavaScript mostra o nome do usuário -->
+                <p id="contaNome"></p>
+
+                <!-- O JavaScript mostra o endereço cadastrado -->
+                <p id="contaEndereco"></p>
+
+                <!-- Abre a tela para alterar o endereço -->
+                <button onclick="editarEndereco()">
+                    Editar endereço
+                </button>
+
+            </div>
+
+            <h2>Meus pedidos</h2>
+
+            <!--
+                O JavaScript coloca aqui os pedidos do usuário,
+                mostrando produto, restaurante, preço e status.
+            -->
+            <div id="listaPedidos" class="lista"></div>
+
+            <!-- Volta para a lista de restaurantes -->
+            <button
+                class="voltar"
+                onclick="listarRestaurantes()"
+            >
+                Voltar aos restaurantes
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             TELA DE ADMINISTRAÇÃO
+        ================================== -->
+
+        <!-- Área utilizada para atualizar o status dos pedidos -->
+        <section id="dono" hidden>
+
+            <h2>Administração</h2>
+
+            <!-- Explica a função da área administrativa -->
+            <p>Atualização de status dos pedidos.</p>
+
+            <!-- Identificação do campo de código -->
+            <label for="codigoDono">Código do pedido:</label>
+
+            <!-- Campo onde o administrador informa o código -->
+            <input
+                type="number"
+                id="codigoDono"
+                placeholder="Digite o código"
+            >
+
+            <!-- Mostra mensagens de confirmação ou erro -->
+            <p id="msgDono"></p>
+
+            <h2>Escolha o novo status:</h2>
+
+            <!--
+                O JavaScript cria aqui os botões:
+                1 - Em preparação
+                2 - A caminho
+                3 - Entregue
+            -->
+            <div id="botoesStatus" class="linha"></div>
+
+            <!-- Volta para a tela inicial -->
+            <button
+                class="voltar"
+                onclick="listarRestaurantes()"
+            >
+                Voltar
+            </button>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

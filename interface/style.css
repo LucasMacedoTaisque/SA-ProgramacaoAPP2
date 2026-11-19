@@ -1,0 +1,564 @@
+/* =================================
+   CORES E VARIÁVEIS DO SITE
+================================= */
+
+/* Define cores que podem ser reutilizadas em todo o CSS */
+:root {
+    --fundo: #f7f7f7;          /* Cor de fundo da página */
+    --papel: #ffffff;          /* Cor branca dos cartões e áreas */
+    --tinta: #333333;          /* Cor principal dos textos */
+    --suave: #777777;          /* Cor dos textos secundários */
+    --borda: #eeeeee;          /* Cor das bordas */
+    --marca: #ea1d2c;          /* Cor principal da NovaTech */
+    --marca-escura: #c81020;   /* Cor mais escura da marca */
+    --erro: #d71920;           /* Cor das mensagens de erro */
+}
+
+/* Faz largura e altura dos elementos incluírem padding e borda */
+* {
+    box-sizing: border-box;
+}
+
+/* Configura a aparência geral da página */
+body {
+    margin: 0;                 /* Remove a margem padrão */
+    background: var(--fundo);  /* Aplica a cor de fundo */
+    color: var(--tinta);       /* Define a cor dos textos */
+    font-family: Arial, sans-serif; /* Define a fonte */
+    line-height: 1.5;          /* Espaçamento entre linhas */
+}
+
+
+/* =================================
+   CABEÇALHO
+================================= */
+
+/* Organiza o nome, a busca e o relógio */
+header {
+    display: flex;             /* Coloca os elementos lado a lado */
+    justify-content: space-between; /* Distribui os elementos */
+    align-items: center;       /* Alinha os elementos verticalmente */
+    gap: 25px;                 /* Espaço entre os elementos */
+    max-width: 1200px;         /* Limita a largura do cabeçalho */
+    margin: auto;              /* Centraliza o cabeçalho */
+    padding: 22px 30px;        /* Espaçamento interno */
+    background: var(--papel);  /* Fundo branco */
+}
+
+/* Estiliza o título principal do site */
+h1 {
+    margin: 0;                 /* Remove a margem */
+    color: var(--marca);       /* Usa a cor da marca */
+    font-size: 30px;           /* Tamanho da letra */
+    font-weight: bold;         /* Deixa o texto em negrito */
+}
+
+/* Estiliza o relógio */
+#relogio {
+    color: var(--suave);       /* Cor cinza */
+    font-weight: bold;         /* Texto em negrito */
+}
+
+/* Define a largura da área de pesquisa */
+.busca {
+    width: 420px;
+}
+
+/* Estiliza o campo de pesquisa */
+.busca input {
+    width: 100%;               /* Ocupa toda a largura disponível */
+    margin: 0;                 /* Remove a margem */
+    padding: 13px 16px;        /* Espaçamento interno */
+    border-radius: 10px;       /* Arredonda os cantos */
+    background: #f7f7f7;       /* Fundo cinza claro */
+}
+
+
+/* =================================
+   NAVEGAÇÃO
+================================= */
+
+/* Organiza os botões do menu */
+nav {
+    display: flex;             /* Coloca os botões lado a lado */
+    flex-wrap: wrap;           /* Permite quebrar linha */
+    gap: 12px;                 /* Espaço entre os botões */
+    max-width: 1200px;         /* Limita a largura */
+    margin: auto;              /* Centraliza o menu */
+    padding: 12px 30px;        /* Espaçamento interno */
+    background: var(--papel);  /* Fundo branco */
+    border-top: 1px solid var(--borda); /* Linha superior */
+}
+
+/* Esconde elementos que possuem o atributo hidden */
+[hidden] {
+    display: none !important;
+}
+
+
+/* =================================
+   CONTEÚDO PRINCIPAL
+================================= */
+
+/* Define o espaço onde aparecem as telas do site */
+main {
+    max-width: 1200px;         /* Largura máxima */
+    margin: 25px auto;         /* Espaço externo e centralização */
+    padding: 25px 30px;        /* Espaçamento interno */
+    background: var(--papel);  /* Fundo branco */
+    border-radius: 12px;       /* Cantos arredondados */
+}
+
+/* Estiliza os títulos secundários */
+h2 {
+    font-size: 23px;           /* Tamanho da fonte */
+    margin-bottom: 20px;       /* Espaço abaixo do título */
+}
+
+
+/* =================================
+   BANNER PRINCIPAL
+================================= */
+
+/* Cria a área de destaque da página inicial */
+.banner {
+    padding: 40px;             /* Espaçamento interno */
+    margin-bottom: 35px;       /* Espaço abaixo do banner */
+    border-radius: 12px;       /* Arredonda os cantos */
+    background: var(--marca);  /* Fundo vermelho */
+    color: white;              /* Texto branco */
+}
+
+/* Estiliza o pequeno texto acima do título do banner */
+.banner-texto span {
+    font-size: 12px;           /* Tamanho pequeno */
+    font-weight: bold;         /* Negrito */
+    letter-spacing: 2px;       /* Espaçamento entre letras */
+}
+
+/* Estiliza o título do banner */
+.banner h2 {
+    font-size: 32px;           /* Tamanho do título */
+    margin: 12px 0;            /* Espaçamento vertical */
+}
+
+/* Estiliza o parágrafo do banner */
+.banner p {
+    margin: 0;                 /* Remove a margem */
+    font-size: 16px;           /* Tamanho do texto */
+}
+
+
+/* =================================
+   TÍTULOS E TEXTOS
+================================= */
+
+/* Ajusta o espaço abaixo dos títulos das seções */
+.titulo-secao h2 {
+    margin-bottom: 5px;
+}
+
+/* Estiliza os parágrafos das seções */
+.titulo-secao p {
+    margin-top: 0;             /* Remove espaço acima */
+    color: var(--suave);       /* Texto cinza */
+}
+
+/* Adiciona espaço abaixo da área de boas-vindas */
+.boas-vindas {
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   BOTÕES
+================================= */
+
+/* Define o estilo padrão de todos os botões */
+button {
+    padding: 11px 18px;        /* Espaçamento interno */
+    border: 1px solid var(--borda); /* Borda */
+    border-radius: 8px;        /* Cantos arredondados */
+    background: white;         /* Fundo branco */
+    color: var(--tinta);       /* Texto escuro */
+    font: inherit;             /* Usa a fonte do site */
+    cursor: pointer;           /* Mostra a mão ao passar o mouse */
+    transition: 0.2s;          /* Suaviza as mudanças */
+}
+
+/* Efeito ao passar o mouse sobre os botões */
+button:hover {
+    border-color: var(--marca); /* Borda vermelha */
+    color: var(--marca);       /* Texto vermelho */
+}
+
+/* Estilo dos botões principais */
+.principal {
+    background: var(--marca);  /* Fundo vermelho */
+    color: white;              /* Texto branco */
+    border-color: var(--marca); /* Borda vermelha */
+    font-weight: bold;         /* Texto em negrito */
+}
+
+/* Efeito ao passar o mouse no botão principal */
+.principal:hover {
+    background: var(--marca-escura); /* Vermelho mais escuro */
+    color: white;
+}
+
+/* Adiciona espaço acima do botão voltar */
+.voltar {
+    margin-top: 15px;
+}
+
+/* Estilo dos elementos relacionados ao dono */
+.dono {
+    color: var(--suave);
+}
+
+/* Estilo dos botões de ações perigosas */
+.perigo {
+    color: var(--erro);        /* Texto vermelho */
+    border-color: var(--erro); /* Borda vermelha */
+}
+
+
+/* =================================
+   CAMPOS DE FORMULÁRIO
+================================= */
+
+/* Estiliza os textos que identificam os campos */
+label {
+    display: block;            /* Ocupa uma linha inteira */
+    margin: 15px 0;            /* Espaçamento vertical */
+    font-weight: bold;         /* Texto em negrito */
+}
+
+/* Estiliza os campos de entrada */
+input {
+    display: block;            /* Coloca o campo em uma linha */
+    width: 100%;               /* Ocupa toda a largura */
+    padding: 13px;             /* Espaçamento interno */
+    margin-top: 6px;           /* Espaço acima */
+    border: 1px solid var(--borda); /* Borda */
+    border-radius: 8px;        /* Cantos arredondados */
+    background: white;         /* Fundo branco */
+    color: var(--tinta);       /* Cor do texto */
+    font: inherit;             /* Usa a fonte do site */
+}
+
+/* Destaca o campo quando ele está selecionado */
+input:focus {
+    outline: 2px solid var(--marca); /* Contorno vermelho */
+}
+
+/* Define a cor das mensagens de erro */
+.erro {
+    color: var(--erro);
+}
+
+
+/* =================================
+   LISTAS E CARTÕES
+================================= */
+
+/* Organiza os cartões em duas colunas */
+.lista {
+    display: grid;             /* Ativa o sistema de grade */
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas iguais */
+    gap: 18px;                 /* Espaço entre os cartões */
+}
+
+/* Estiliza os cartões gerais */
+.cartao {
+    display: flex;             /* Organiza o conteúdo lado a lado */
+    justify-content: space-between; /* Separa os elementos */
+    align-items: center;       /* Alinha verticalmente */
+    gap: 12px;                 /* Espaço entre elementos */
+    width: 100%;               /* Ocupa toda a largura */
+    padding: 20px;             /* Espaçamento interno */
+    background: white;         /* Fundo branco */
+    border: 1px solid var(--borda); /* Borda */
+    border-radius: 12px;       /* Cantos arredondados */
+    text-align: left;          /* Alinha o texto à esquerda */
+}
+
+/* Efeito ao passar o mouse nos cartões */
+.cartao:hover {
+    border-color: var(--marca); /* Borda vermelha */
+    box-shadow: 0 3px 12px #00000010; /* Sombra leve */
+}
+
+/* Mantém o cartão fixo sem cursor de clique */
+.cartao.fixo {
+    cursor: default;
+}
+
+/* Estiliza o nome dentro do cartão */
+.cartao-nome {
+    display: block;
+    font-weight: bold;
+}
+
+/* Define a cor de textos pequenos e mensagens vazias */
+.cartao small,
+.vazio {
+    color: var(--suave);
+}
+
+/* Destaca preços e códigos */
+.preco,
+.codigo {
+    color: var(--marca);
+    font-weight: bold;
+}
+
+
+/* =================================
+   STATUS DOS PEDIDOS E RESTAURANTES
+================================= */
+
+/* Estilo geral das etiquetas de status */
+.selo,
+.status {
+    padding: 4px 10px;         /* Espaçamento interno */
+    border-radius: 20px;       /* Formato arredondado */
+    font-size: 13px;           /* Texto menor */
+    font-weight: bold;         /* Texto em negrito */
+}
+
+/* Cor para restaurante aberto e pedido entregue */
+.selo.aberto,
+.s2 {
+    background: #e5f7ed;       /* Fundo verde claro */
+    color: #16834a;            /* Texto verde */
+}
+
+/* Cor para restaurante fechado */
+.selo.fechado {
+    background: #eeeeee;
+    color: #777777;
+}
+
+/* Cor para pedido em preparação */
+.s0 {
+    background: #fff1d6;
+    color: #996000;
+}
+
+/* Cor para pedido a caminho */
+.s1 {
+    background: #e5f0ff;
+    color: #2464a5;
+}
+
+
+/* =================================
+   CAIXAS DE INFORMAÇÃO
+================================= */
+
+/* Estiliza caixas que apresentam informações */
+.caixa {
+    padding: 18px;             /* Espaçamento interno */
+    background: white;         /* Fundo branco */
+    border: 1px solid var(--borda); /* Borda */
+    border-radius: 12px;       /* Cantos arredondados */
+}
+
+/* Ajusta os parágrafos dentro das caixas */
+.caixa p {
+    margin: 6px 0;
+}
+
+/* Adiciona espaço acima dos botões das caixas */
+.caixa button {
+    margin-top: 10px;
+}
+
+/* Organiza elementos em uma linha, permitindo quebra */
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Destaca a mensagem da área do dono */
+#msgDono {
+    font-weight: bold;
+}
+
+
+/* =================================
+   EFEITOS
+================================= */
+
+/* Ativa transições suaves quando o usuário não
+   prefere reduzir os movimentos da interface */
+@media (prefers-reduced-motion: no-preference) {
+    button {
+        transition: 0.2s;
+    }
+}
+
+
+/* =================================
+   RESPONSIVIDADE GERAL
+================================= */
+
+/* Aplica ajustes em telas menores, como celulares */
+@media (max-width: 700px) {
+
+    /* Permite que os elementos do cabeçalho quebrem linha */
+    header {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    /* Faz a busca ocupar toda a largura */
+    .busca {
+        width: 100%;
+    }
+
+    /* Reduz o espaçamento do menu */
+    nav {
+        padding: 12px 16px;
+    }
+
+    /* Ajusta o conteúdo principal para telas pequenas */
+    main {
+        margin: 10px;
+        padding: 16px;
+    }
+
+    /* Mostra os cartões em apenas uma coluna */
+    .lista {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduz o espaço interno do banner */
+    .banner {
+        padding: 25px;
+    }
+
+    /* Diminui o título do banner */
+    .banner h2 {
+        font-size: 24px;
+    }
+}
+
+
+/* =================================
+   TAMANHO DAS FOTOS
+================================= */
+
+/* Define o tamanho das fotos dos cartões de restaurantes */
+.imagem-cartao-restaurante {
+    width: 100%;               /* Ocupa a largura do cartão */
+    height: 180px;              /* Altura fixa da imagem */
+    object-fit: cover;         /* Preenche sem deformar a foto */
+    display: block;            /* Remove espaço extra de imagem inline */
+    border-radius: 12px 12px 0 0; /* Arredonda os cantos superiores */
+}
+
+/* Define o tamanho das fotos dos produtos do cardápio */
+.imagem-comida {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Organiza os cartões dos restaurantes */
+.cartao-restaurante {
+    width: 100%;
+    max-width: 280px;           /* Limita a largura do cartão */
+    padding: 0;
+    overflow: hidden;           /* Esconde o conteúdo que ultrapassa */
+    display: flex;
+    flex-direction: column;     /* Coloca imagem e texto um abaixo do outro */
+    text-align: left;
+}
+
+/* Organiza os cartões das comidas */
+.cartao-comida {
+    width: 100%;
+    max-width: 250px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Organiza as informações dentro dos cartões */
+.informacoes-cartao {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                   /* Espaço entre as informações */
+}
+
+/* Organiza os restaurantes em uma grade automática */
+.lista-restaurantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* Cria colunas que se ajustam ao espaço disponível */
+    gap: 20px;
+}
+
+/* Organiza os produtos do cardápio em uma grade */
+.lista-comidas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Define o tamanho da foto grande no cabeçalho do cardápio */
+.imagem-restaurante {
+    width: 100%;
+    max-width: 500px;           /* Limita a largura da foto */
+    height: 240px;              /* Define a altura */
+    object-fit: cover;          /* Evita deformar a imagem */
+    border-radius: 14px;        /* Arredonda os cantos */
+    display: block;
+}
+
+/* Organiza a foto e as informações do cabeçalho do cardápio */
+.cabecalho-cardapio {
+    display: flex;              /* Coloca imagem e texto lado a lado */
+    align-items: center;        /* Alinha verticalmente */
+    gap: 25px;                  /* Espaço entre imagem e texto */
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   RESPONSIVIDADE DAS FOTOS
+================================= */
+
+/* Ajusta as imagens e o cabeçalho em celulares */
+@media (max-width: 600px) {
+
+    /* Coloca a foto acima das informações do cardápio */
+    .cabecalho-cardapio {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Ajusta a foto principal do restaurante */
+    .imagem-restaurante {
+        max-width: 100%;
+        height: 190px;
+    }
+
+    /* Diminui as fotos dos cartões de restaurantes */
+    .imagem-cartao-restaurante {
+        height: 150px;
+    }
+
+    /* Diminui as fotos dos produtos */
+    .imagem-comida {
+        height: 140px;
+    }
+}
